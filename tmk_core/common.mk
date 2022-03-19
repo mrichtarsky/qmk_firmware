@@ -93,6 +93,7 @@ endif
 
 ifeq ($(strip $(CONSOLE_ENABLE)), yes)
     TMK_COMMON_DEFS += -DCONSOLE_ENABLE
+    TMK_COMMON_DEFS += -DNO_DEBUG
 else
     TMK_COMMON_DEFS += -DNO_PRINT
     TMK_COMMON_DEFS += -DNO_DEBUG
