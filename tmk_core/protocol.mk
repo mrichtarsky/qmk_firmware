@@ -44,6 +44,7 @@ endif
 
 ifeq ($(strip $(CONSOLE_ENABLE)), yes)
     TMK_COMMON_DEFS += -DCONSOLE_ENABLE
+    TMK_COMMON_DEFS += -DNO_DEBUG
 else
     # TODO: decouple this so other print backends can exist
     TMK_COMMON_DEFS += -DNO_PRINT
