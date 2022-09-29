@@ -8,3 +8,8 @@ ORYX_ENABLE = no
 TAP_DANCE_ENABLE = yes
 SRC = matrix.c
 CAPS_WORD_ENABLE = yes
+
+# These settings do not reduze size, apparently default.
+MIDI_ENABLE = no
+STENO_ENABLE = no
+VIRTSER_ENABLE = no
