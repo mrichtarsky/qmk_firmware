@@ -69,6 +69,7 @@ enum custom_keycodes {
   ST_MACRO_12,
 };
 
+
 enum tap_dance_codes {
   DANCE_0,
   DANCE_1,
@@ -142,7 +143,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [6] = LAYOUT_ergodox_pretty(
     KC_TRANSPARENT, TD(DANCE_4),    LALT(LGUI(LCTL(KC_F))),TD(DANCE_5),    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
     LGUI(KC_UP),    LALT(LGUI(KC_LEFT)),LALT(LGUI(KC_RIGHT)),LALT(LGUI(KC_BSPACE)),KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_SLASH,       KC_7,           KC_8,           KC_9,           KC_ASTR,        KC_TRANSPARENT,
-    LGUI(KC_DOWN),  KC_SLASH,       KC_ASTR,        KC_MINUS,       KC_PLUS,        KC_EQUAL,                                                                       KC_MINUS,       KC_4,           KC_5,           KC_6,           KC_PLUS,        KC_ENTER,
+    LALT(KC_ESCAPE),KC_SLASH,       KC_ASTR,        KC_MINUS,       KC_PLUS,        KC_EQUAL,                                                                       KC_MINUS,       KC_4,           KC_5,           KC_6,           KC_PLUS,        KC_ENTER,
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_1,           KC_2,           KC_3,           KC_DOT,         KC_TRANSPARENT,
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                                                                                 KC_0,           KC_TRANSPARENT, KC_TRANSPARENT, KC_COMMA,       KC_TRANSPARENT,
                                                                                                     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
@@ -152,7 +153,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [7] = LAYOUT_ergodox_pretty(
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, LCTL(KC_F1),    LCTL(LSFT(KC_F1)),KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
-    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                                                 ST_MACRO_8,     KC_F1,          RCTL(KC_O),     LCTL(LSFT(KC_H)),RCTL(KC_P),     KC_TRANSPARENT,
+    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                                                 ST_MACRO_8,     KC_F1,          LCTL(LSFT(KC_E)),LCTL(LSFT(KC_H)),RCTL(KC_P),     KC_TRANSPARENT,
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, LCTL(KC_SCOLON),LCTL(KC_QUOTE), ST_MACRO_9,     ST_MACRO_10,    KC_TRANSPARENT,
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                                                                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
                                                                                                     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
@@ -200,6 +201,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                                                                     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT
   ),
 };
+
+
 
 
 extern rgb_config_t rgb_matrix_config;
@@ -288,81 +291,69 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     case ST_MACRO_0:
     if (record->event.pressed) {
       SEND_STRING(SS_TAP(X_QUOTE) SS_DELAY(100) SS_TAP(X_SPACE));
-
     }
     break;
     case ST_MACRO_1:
     if (record->event.pressed) {
       SEND_STRING(SS_LSFT(SS_TAP(X_GRAVE)) SS_DELAY(100) SS_TAP(X_SPACE));
-
     }
     break;
     case ST_MACRO_2:
     if (record->event.pressed) {
       SEND_STRING(SS_TAP(X_GRAVE) SS_DELAY(100) SS_TAP(X_SPACE));
-
     }
     break;
     case ST_MACRO_3:
     if (record->event.pressed) {
       SEND_STRING(SS_LSFT(SS_TAP(X_6)) SS_DELAY(100) SS_TAP(X_SPACE));
-
     }
     break;
     case ST_MACRO_4:
     if (record->event.pressed) {
       SEND_STRING(SS_LSFT(SS_TAP(X_UP)) SS_DELAY(100) SS_LSFT(SS_TAP(X_UP)) SS_DELAY(100) SS_LSFT(SS_TAP(X_UP)) SS_DELAY(100) SS_LSFT(SS_TAP(X_UP)) SS_DELAY(100) SS_LSFT(SS_TAP(X_UP)));
-
     }
     break;
     case ST_MACRO_5:
     if (record->event.pressed) {
       SEND_STRING(SS_LSFT(SS_TAP(X_DOWN)) SS_DELAY(100) SS_LSFT(SS_TAP(X_DOWN)) SS_DELAY(100) SS_LSFT(SS_TAP(X_DOWN)) SS_DELAY(100) SS_LSFT(SS_TAP(X_DOWN)) SS_DELAY(100) SS_LSFT(SS_TAP(X_DOWN)));
-
     }
     break;
     case ST_MACRO_6:
     if (record->event.pressed) {
       SEND_STRING(SS_TAP(X_UP) SS_DELAY(100) SS_TAP(X_UP) SS_DELAY(100) SS_TAP(X_UP) SS_DELAY(100) SS_TAP(X_UP) SS_DELAY(100) SS_TAP(X_UP));
-
     }
     break;
     case ST_MACRO_7:
     if (record->event.pressed) {
       SEND_STRING(SS_TAP(X_DOWN) SS_DELAY(100) SS_TAP(X_DOWN) SS_DELAY(100) SS_TAP(X_DOWN) SS_DELAY(100) SS_TAP(X_DOWN) SS_DELAY(100) SS_TAP(X_DOWN));
-
     }
     break;
     case ST_MACRO_8:
     if (record->event.pressed) {
       SEND_STRING(SS_LCTL(SS_TAP(X_K)) SS_DELAY(100) SS_LCTL(SS_TAP(X_P)));
-
     }
     break;
     case ST_MACRO_9:
     if (record->event.pressed) {
       SEND_STRING(SS_LCTL(SS_TAP(X_K)) SS_DELAY(100) SS_LCTL(SS_TAP(X_C)));
-
     }
     break;
     case ST_MACRO_10:
     if (record->event.pressed) {
       SEND_STRING(SS_LCTL(SS_TAP(X_K)) SS_DELAY(100) SS_LCTL(SS_TAP(X_U)));
-
     }
     break;
     case ST_MACRO_11:
     if (record->event.pressed) {
       SEND_STRING(SS_LALT(SS_TAP(X_TAB) SS_TAP(X_RIGHT) ));
-
     }
     break;
     case ST_MACRO_12:
     if (record->event.pressed) {
       SEND_STRING(SS_LSFT(SS_TAP(X_QUOTE)) SS_DELAY(100) SS_TAP(X_SPACE));
-
     }
     break;
+
     case RGB_SLD:
       if (record->event.pressed) {
         rgblight_mode(1);
@@ -440,6 +431,7 @@ uint16_t layer_state_set_user(uint16_t state) {
   }
   return state;
 };
+
 
 typedef struct {
     bool is_press_action;
@@ -649,4 +641,3 @@ qk_tap_dance_action_t tap_dance_actions[] = {
         [DANCE_4] = ACTION_TAP_DANCE_FN_ADVANCED(on_dance_4, dance_4_finished, dance_4_reset),
         [DANCE_5] = ACTION_TAP_DANCE_FN_ADVANCED(on_dance_5, dance_5_finished, dance_5_reset),
 };
-
